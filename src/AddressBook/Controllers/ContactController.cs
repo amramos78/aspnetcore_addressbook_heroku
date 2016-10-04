@@ -9,7 +9,6 @@ namespace AddressBook.Controllers
     public class ContactController : Controller
     {
         private readonly IContactRepository _contactRepository;
-        private ILogger _logger;
         
         public ContactController (IContactRepository contactRepository)
         {
