@@ -1,9 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AddressBook.Models
 {
     public class Contact
     {
+        [KeyAttribute]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [RequiredAttribute, MaxLengthAttribute(30), DisplayAttribute(Name="First Name")]

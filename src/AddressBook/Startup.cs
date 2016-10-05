@@ -30,8 +30,12 @@ namespace AddressBook
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            /*services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
+            );*/
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("PgSQlConnection"))
             );
 
             services.AddIdentity<IdentityUser, IdentityRole>()

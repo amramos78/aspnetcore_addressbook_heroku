@@ -17,7 +17,8 @@ namespace AddressBook.Services
 
         public void AddContact(Contact contact)
         {
-            _dbContext.Contacts.Add(contact);
+            _dbContext.Contacts.Add(contact).State = EntityState.Added;
+
             _dbContext.SaveChanges();
         }
 
