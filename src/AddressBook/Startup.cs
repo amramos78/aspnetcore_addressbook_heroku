@@ -43,8 +43,10 @@ namespace AddressBook
             services.AddScoped<IContactRepository, DatabaseContactRepository>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
             //app.UseDefaultFiles();
             //app.UseFileServer();
             if(env.IsDevelopment())
