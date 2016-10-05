@@ -16,6 +16,7 @@ namespace AddressBook
                 .Build();
 
             var host = new WebHostBuilder()
+            .UseConfiguration(config)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
             //.UseUrls("http://localhost:5050")
