@@ -13,25 +13,7 @@ namespace AddressBook.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.1");
-
-            modelBuilder.Entity("AddressBook.Models.Audit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Created")
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<string>("Message");
-
-                    b.Property<string>("User")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Audits");
-                });
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
             modelBuilder.Entity("AddressBook.Models.Contact", b =>
                 {
