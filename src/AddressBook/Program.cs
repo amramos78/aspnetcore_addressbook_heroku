@@ -13,13 +13,14 @@ namespace AddressBook
             var config = new ConfigurationBuilder()
                 .AddCommandLine(args)
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
+                .AddJsonFile("hosting.json", optional: true)
                 .Build();
 
             var host = new WebHostBuilder()
             .UseConfiguration(config)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
-            //.UseUrls("http://localhost:5050")
+            .UseUrls("http://localhost:5050")
             .UseIISIntegration()
             .UseStartup<Startup>()
             .Build();

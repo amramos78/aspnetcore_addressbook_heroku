@@ -54,7 +54,8 @@
       "Views",
       "appsettings.json",
       "AddressBook.db",
-      "web.config"
+      "web.config",
+      "hosting.json"
     ]
   },
   "frameworks": {
