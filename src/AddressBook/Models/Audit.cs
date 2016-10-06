@@ -9,14 +9,14 @@ namespace AddressBook.Models
         [KeyAttribute]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Computed)]
-        public DateTime Created {get;set;}
 
         [RequiredAttribute]
         public string User {get;set;}
 
         public string Message {get; set;}
+
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Computed)]
+        public DateTime CreatedOn { get; set; }
 
     }
 }

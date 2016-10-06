@@ -10,9 +10,8 @@ namespace AddressBook.Data
         {
 
         }
-
         public DbSet<Contact> Contacts {get; set;}
 
-        //public DbSet<Audit> Audits {get; set;}
+        public DbSet<Audit> Audits {get; set;}
     }
 }

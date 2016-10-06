@@ -10,6 +10,7 @@ namespace AddressBook.Services
     public class DatabaseContactRepository : IContactRepository
     {
         private readonly ApplicationDbContext _dbContext;
+
         public DatabaseContactRepository (ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -18,6 +19,7 @@ namespace AddressBook.Services
         public void AddContact(Contact contact)
         {
             _dbContext.Contacts.Add(contact).State = EntityState.Added;
+            _dbContext.Audits.Add(new Audit{ User = "test", Message ="AddContact" }).State = EntityState.Added;
 
             _dbContext.SaveChanges();
         }
@@ -26,7 +28,7 @@ namespace AddressBook.Services
         {
             var contact = GetContact(Id);
             _dbContext.Contacts.Remove(contact).State = EntityState.Deleted;
-
+            _dbContext.Audits.Add(new Audit{ User = "test", Message ="DeleteContact" });
             _dbContext.SaveChanges();
         }
 
@@ -43,6 +45,7 @@ namespace AddressBook.Services
         public void UpdateContact(Contact contact)
         {
             _dbContext.Contacts.Update(contact);
+            _dbContext.Audits.Add(new Audit{ User = "test", Message ="UpdateContact" });
             _dbContext.SaveChanges();
         }
     }

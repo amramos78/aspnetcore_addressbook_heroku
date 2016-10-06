@@ -5,16 +5,35 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using AddressBook.Data;
 
-namespace AddressBook.Data.Migrations
+namespace AddressBook.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160928172621_Identity")]
-    partial class Identity
+    [Migration("20161006003534_AuditTimeStamp")]
+    partial class AuditTimeStamp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.1");
+
+            modelBuilder.Entity("AddressBook.Models.Audit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedOn")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("User")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Audits");
+                });
 
             modelBuilder.Entity("AddressBook.Models.Contact", b =>
                 {
