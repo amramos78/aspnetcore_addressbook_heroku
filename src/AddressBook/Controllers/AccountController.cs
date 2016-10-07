@@ -19,15 +19,15 @@ namespace AddressBook.Controllers
           _signInManager = signInManager;
         }
 
-        [AllowAnonymousAttribute]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
-        [AllowAnonymousAttribute]
-        [HttpPostAttribute]
-        [ValidateAntiForgeryTokenAttribute]
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel resgisterViewModel)
         {
             if(ModelState.IsValid)
@@ -47,7 +47,7 @@ namespace AddressBook.Controllers
             return View(resgisterViewModel);
         }
 
-        [AllowAnonymousAttribute]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             
@@ -55,7 +55,7 @@ namespace AddressBook.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymousAttribute]
+        [AllowAnonymous]
         public async Task<IActionResult> Login (LoginViewModel loginViewModel)
         {
             if(ModelState.IsValid)

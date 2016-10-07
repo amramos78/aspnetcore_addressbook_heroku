@@ -29,8 +29,8 @@ namespace AddressBook.Controllers
             return View();
         }
 
-        [HttpPostAttribute]
-        [ValidateAntiForgeryTokenAttribute]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Contact contact)
         {
             if(ModelState.IsValid)
@@ -47,8 +47,8 @@ namespace AddressBook.Controllers
             return View(contact);
         }
 
-        [HttpPostAttribute]
-        [ValidateAntiForgeryTokenAttribute]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Contact contact)
         {
             if(ModelState.IsValid)
@@ -59,7 +59,7 @@ namespace AddressBook.Controllers
             return View(contact);
         }
 
-        //[ValidateAntiForgeryTokenAttribute]
+        //[ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             _contactRepository.DeleteContact(id);
