@@ -1,0 +1,9 @@
+version: '2'
+services:
+  tradapp-build:
+    image: microsoft/dotnet
+    volumes:
+      - .:/AddressBook
+    working_dir: /AddressBook
+    entrypoint: ["sh", "./build.sh"]
+

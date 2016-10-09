@@ -53,7 +53,8 @@
       "Views",
       "appsettings.json",
       "AddressBook.db",
-      "web.config"
+      "web.config",
+      "Dockerfile"
     ]
   },
   "frameworks": {
