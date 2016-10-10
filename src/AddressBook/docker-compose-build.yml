@@ -1,7 +1,7 @@
 version: '2'
 services:
   tradapp-build:
-    image: microsoft/dotnet
+    image: microsoft/aspnetcore-build
     volumes:
       - .:/AddressBook
     working_dir: /AddressBook
