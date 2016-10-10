@@ -45,7 +45,7 @@
   },
   "scripts":{
     //"precompile": [ "dotnet bundle" ],
-    "prepublish": [ "which bower && bower cache clean && bower install" ],
+    //"prepublish": [ "which bower && bower cache clean && bower install" ],
     "postpublish":["dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"]
   },
   "publishOptions":{
@@ -55,7 +55,8 @@
       "appsettings.json",
       "AddressBook.db",
       "web.config",
-      "hosting.json"
+      "hosting.json",
+      "Dockerfile"
     ]
   },
   "frameworks": {
